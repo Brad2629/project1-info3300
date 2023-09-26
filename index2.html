@@ -75,7 +75,7 @@
                 .attr("y", d => yScale(d.value))
                 .attr("width", subXScale.bandwidth())
                 .attr("height", d => chartHeight - yScale(d.value))
-                .attr("fill", d => d.key === 'totalGoals' ? "#69b3a2" : "#d45079");
+                .attr("fill", d => d.key === 'totalGoals' ? "orange" : "lightblue");
 
             const xAxis = d3.axisBottom(xScale);
             chartGroup.append("g")
@@ -98,8 +98,8 @@
                 .text("Values");
             
             const legendData = [
-            { label: 'Goals', color: "#69b3a2" },
-            { label: 'Attempts on Target', color: "#d45079" }
+            { label: 'Goals', color: "orange" },
+            { label: 'Attempts on Target', color: "lightblue" }
             ];
 
             const legendX = 100;

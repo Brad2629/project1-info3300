@@ -14,11 +14,16 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        footer {
+        div {
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
+            font-size: 12px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 10px;
             font-size: 12px;
         }
     </style>
@@ -26,6 +31,8 @@
 <body>
     <h1>FIFA World Cup Goals by Country</h1>
     <svg class="map" id="map" width="1400" height="600"></svg>
+    <div> Data source: <a href="https://www.kaggle.com/datasets/die9origephit/fifa-world-cup-2022-complete-dataset" target="_blank">FIFA World Cup 2022 Complete Dataset</a><br>
+        GeoJSON source: <a href="https://geojson-maps.ash.ms/" target="_blank">geojson-maps.ash.ms</a></div>
     <h1>FIFA World Cup Performance: Goals vs. On-Target Attempts</h1>
     <svg class="bar" id="bar" width="1400" height="600"></svg>
     <script>
@@ -152,7 +159,7 @@
                 .attr("y", d => yScale(d.value))
                 .attr("width", subXScale.bandwidth())
                 .attr("height", d => chartHeight - yScale(d.value))
-                .attr("fill", d => d.key === 'totalGoals' ? "orange" : "lightblue");
+                .attr("fill", d => d.key === 'totalGoals' ? "#2E8B57" : "#FFD700");
 
             const xAxis = d3.axisBottom(xScale);
             chartGroup.append("g")
@@ -175,8 +182,8 @@
                 .text("Values");
             
             const legendData = [
-            { label: 'Goals', color: "orange" },
-            { label: 'Attempts on Target', color: "lightblue" }
+            { label: 'Goals', color: "green" },
+            { label: 'Attempts on Target', color: "#FFD700" }
             ];
 
             const legendX = 100;
@@ -206,8 +213,7 @@
         });
     </script>
     <footer>
-        Data source: <a href="https://www.kaggle.com/datasets/die9origephit/fifa-world-cup-2022-complete-dataset" target="_blank">FIFA World Cup 2022 Complete Dataset</a><br>
-        GeoJSON source: <a href="https://geojson-maps.ash.ms/" target="_blank">geojson-maps.ash.ms</a>
+        Data source: <a href="https://www.kaggle.com/datasets/die9origephit/fifa-world-cup-2022-complete-dataset" target="_blank">FIFA World Cup 2022 Complete Dataset</a>
     </footer>
 </body>
 </html>

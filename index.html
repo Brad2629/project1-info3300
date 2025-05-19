@@ -45,6 +45,7 @@
             .translate([widthMap / 2, heightMap / 2]);
         const path = d3.geoPath().projection(projection);
         const colorScale = d3.scaleSequential(d3.interpolateOranges).domain([0, 15]);
+        const legendWidth = 300;
 
         Promise.all([
             d3.json("custom.geo.json"),
